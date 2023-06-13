@@ -25,8 +25,8 @@ func Uncompress(inputData []byte) ([]byte, error) {
 		return nil, fmt.Errorf("unsupported file format")
 	}
 
-	// decode size of decompressed output
-	// for standard lz4, which does not include such info, use a heuristic func as suggested by Mark Adler: https://stackoverflow.com/a/25755758/9109880
+	// decode size of decompressed output (ref: https://github.com/avih/dejsonlz4/blob/c4305b8807c357301f8b3e013b95242035ec1a52/src/dejsonlz4.c#L136)
+	// for standard lz4, which does not include such info, use a heuristic as suggested by Mark Adler: https://stackoverflow.com/a/25755758/9109880
 	var outputSizeUpperBound int
 	for i := magicSize; i < magicSize+decompSize; i++ {
 		outputSizeUpperBound += (int)(inputData[i]) << (8 * (i - magicSize))
@@ -38,6 +38,5 @@ func Uncompress(inputData []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return outputData, nil
 }

@@ -76,7 +76,7 @@ func printErr(err error) {
 }
 
 const usage string = `Usage: go-dejsonlz4 [-h] IN_FILE [OUT_FILE]
-Example: go-dejsonlz4 ~/.mozilla/firefox/aks8v8c0.default-release/bookmarkbackups/bookmarks-2023-03-01_1011_OItiw5WByHsdl6u-lQ08mQ==.jsonlz4
+Example: go-dejsonlz4 ~/.mozilla/firefox/$PROFILE_NAME/bookmarkbackups/$FILE_NAME.jsonlz4
 Decompress Firefox bookmark files with .jsonlz4 extension from IN_FILE to OUT_FILE:
 	* -h, display help message and exit,
 	* IN_FILE='-', uncompress from standard input,
