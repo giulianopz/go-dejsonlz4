@@ -1,4 +1,4 @@
-package main
+package jsonlz4
 
 import (
 	"fmt"

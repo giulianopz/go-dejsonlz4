@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/giulianopz/go-dejsonlz4/jsonlz4"
 )
 
 const hyphenSign = "-"
@@ -53,7 +55,7 @@ func main() {
 		inputData = bs
 	}
 
-	outputData, err := Uncompress(inputData)
+	outputData, err := jsonlz4.Uncompress(inputData)
 	if err != nil {
 		printErr(err)
 	}

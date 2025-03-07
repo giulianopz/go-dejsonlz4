@@ -27,7 +27,7 @@ import (
 	"fmt"
 	"os"
 
-	dejsonlz4 "github.com/giulianopz/go-dejsonlz4"
+	"github.com/giulianopz/go-dejsonlz4/jsonlz4"
 )
 
 func main() {
@@ -37,7 +37,7 @@ func main() {
 		panic(err)
 	}
 
-	outputData, err := dejsonlz4.Uncompress(inputData)
+	outputData, err := jsonlz4.Uncompress(inputData)
 	if err != nil {
 		panic(err)
 	}
